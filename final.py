@@ -12,7 +12,10 @@ def recommend_movies(genre):
 	if is_genre == False:
 		print "Sorry, that isn't a valid genre. Try one of these:"
 		print list_genres 
-
+		fav = raw_input(prompt)
+	else:
+		fav = genre
+	
 	web_list = ["https://www.rottentomatoes.com/top/bestofrt/top_100_action__adventure_movies/", 
 				"https://www.rottentomatoes.com/top/bestofrt/top_100_animation_movies/",
 				"https://www.rottentomatoes.com/top/bestofrt/top_100_art_house__international_movies/",
@@ -29,7 +32,7 @@ def recommend_movies(genre):
 				"https://www.rottentomatoes.com/top/bestofrt/top_100_western_movies/"]
 
 	for i in range(0, len(list_genres)):
-		if genre == list_genres[i]:
+		if fav == list_genres[i]:
 			top_in_genre = get_page(web_list[i])
 			movie_titles = search_inside_html(top_in_genre, 'tr', '', 'a')
 			display_list(movie_titles[1:6])
