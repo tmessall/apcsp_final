@@ -35,6 +35,7 @@ def recommend_movies(genre):
 		if fav == list_genres[i]:
 			top_in_genre = get_page(web_list[i])
 			movie_titles = search_inside_html(top_in_genre, 'tr', '', 'a')
+			print "Here are the top movies from that genre:"
 			display_list(movie_titles[1:6])
 
 def search_inside_html(html, element, class_name, inner_element):
